@@ -2,6 +2,7 @@ services:
   - type: web
     name: algiz-backend
     env: docker
+    plan: free
     rootDir: Backend
     envVars:
       - key: PORT
