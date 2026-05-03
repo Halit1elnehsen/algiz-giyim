@@ -1,4 +1,4 @@
-const API = 'https://poor-eels-beg.loca.lt';
+const API = 'https://algiz-backend.onrender.com';
 let cartCount = 0;
 
 // Custom cursor
