@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALGIZ GİYİM — Koleksiyon</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cinzel:wght@400;600;900&family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="curl"></div>
+
+<div class="toast" id="toast">
+  <span class="toast-icon">ᚦ</span>
+  <span class="toast-msg" id="toast-msg">Sepete eklendi!</span>
+</div>
+
+<!-- AUTH MODAL -->
+<div class="modal-overlay" id="authModal">
+  <div class="modal-card">
+    <button class="modal-close" onclick="closeAuthModal()">✕</button>
+    <div class="modal-tabs">
+      <button class="modal-tab active" onclick="switchAuthTab(0)">Giriş Yap</button>
+      <button class="modal-tab" onclick="switchAuthTab(1)">Kayıt Ol</button>
+    </div>
+    <!-- LOGIN -->
+    <form class="auth-form" id="loginForm" onsubmit="handleLogin(event)">
+      <div class="auth-error" id="loginError"></div>
+      <input class="auth-input" type="email" id="loginEmail" placeholder="E-posta adresiniz" required>
+      <input class="auth-input" type="password" id="loginPass" placeholder="Şifreniz" required>
+      <button class="auth-submit" type="submit"><span>Giriş Yap</span></button>
+    </form>
+    <!-- REGISTER -->
+    <form class="auth-form" id="registerForm" style="display:none" onsubmit="handleRegister(event)">
+      <div class="auth-error" id="registerError"></div>
+      <input class="auth-input" type="email" id="regEmail" placeholder="E-posta adresiniz" required>
+      <input class="auth-input" type="password" id="regPass" placeholder="Şifre (en az 8 karakter)" required minlength="8">
+      <button class="auth-submit" type="submit"><span>Kayıt Ol</span></button>
+    </form>
+    <p class="auth-footer" id="authFooterText">Hesabınız yok mu? <a href="#" onclick="switchAuthTab(1);return false;">Kayıt olun</a></p>
+  </div>
+</div>
+
+<nav>
+  <a href="#" class="nav-logo">
+    <svg class="nav-logo-rune" viewBox="0 0 60 84" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="30" y1="4" x2="30" y2="80" stroke="#c8923a" stroke-width="5" stroke-linecap="round"/>
+      <line x1="30" y1="28" x2="8"  y2="52" stroke="#c8923a" stroke-width="5" stroke-linecap="round"/>
+      <line x1="30" y1="28" x2="52" y2="52" stroke="#c8923a" stroke-width="5" stroke-linecap="round"/>
+    </svg>
+    ALGIZ GİYİM
+  </a>
+  <ul class="nav-links">
+    <li><a href="#">Koleksiyon</a></li>
+    <li><a href="#">Elbiseler</a></li>
+    <li><a href="#lookbook">Lookbook</a></li>
+    <li><a href="#">Hakkımızda</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="nav-btn">Ara</button>
+    <button class="nav-btn" id="accountBtn" onclick="openAuthModal()">Hesabım</button>
+    <button class="cart-badge" id="cartBadge">Sepet (0)</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-tag">2025 · Sonbahar Koleksiyonu</p>
+    <h1 class="hero-title">Güce<br><em>Adanmış</em><br>Zarafet</h1>
+    <p class="hero-subtitle">Algiz — Koruma & Güç Rünü</p>
+    <p class="hero-desc">Kadim sembollerin ilhamıyla doğan her parça; kaliteli kumaşları, özgün desen çalışmalarını ve zamansız kesimi bir araya getirerek modern kadına eşsiz bir kimlik sunuyor.</p>
+    <div class="hero-actions">
+      <a href="#product" class="btn-primary"><span>Keşfet</span></a>
+      <a href="#lookbook" class="btn-ghost">Lookbook</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item"><span class="stat-num">340+</span><span class="stat-label">Mutlu Müşteri</span></div>
+      <div class="stat-item"><span class="stat-num">28</span><span class="stat-label">Özgün Desen</span></div>
+      <div class="stat-item"><span class="stat-num">100%</span><span class="stat-label">El Seçimi Kumaş</span></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-wrap">
+      <img class="hero-img" src="WhatsApp_Image_2026-05-03_at_14_09_56.jpeg" alt="ALGIZ GİYİM">
+      <div class="hero-img-overlay"></div>
+    </div>
+    <svg class="hero-rune-float" viewBox="0 0 60 84" fill="none"><line x1="30" y1="4" x2="30" y2="80" stroke="#c8923a" stroke-width="5" stroke-linecap="round"/><line x1="30" y1="28" x2="8" y2="52" stroke="#c8923a" stroke-width="5" stroke-linecap="round"/><line x1="30" y1="28" x2="52" y2="52" stroke="#c8923a" stroke-width="5" stroke-linecap="round"/></svg>
+    <div class="price-card">
+      <p class="price-card-label">Başlangıç Fiyatı</p>
+      <p class="price-card-amount">₺1.890<span class="price-card-currency">TRY</span></p>
+      <p class="price-card-sub">İade Garantisi</p>
+    </div>
+  </div>
+  <div class="scroll-hint"><div class="scroll-line"></div><span class="scroll-text">Aşağı Kaydır</span></div>
+</section>
+
+<div class="marquee-bar">
+  <div class="marquee-inner">
+    <span class="marquee-item">ALGIZ GİYİM <span class="marquee-sep">᛫</span></span>
+    <span class="marquee-item">YENİ KOLEKSİYON 2025 <span class="marquee-sep">᛫</span></span>
+    <span class="marquee-item">EL SEÇİMİ KUMAŞ <span class="marquee-sep">᛫</span></span>
+    <span class="marquee-item">TÜRK TASARIMI <span class="marquee-sep">᛫</span></span>
+    <span class="marquee-item">ALGIZ GİYİM <span class="marquee-sep">᛫</span></span>
+    <span class="marquee-item">YENİ KOLEKSİYON 2025 <span class="marquee-sep">᛫</span></span>
+    <span class="marquee-item">EL SEÇİMİ KUMAŞ <span class="marquee-sep">᛫</span></span>
+    <span class="marquee-item">TÜRK TASARIMI <span class="marquee-sep">᛫</span></span>
+  </div>
+</div>
+
+<section class="product-section" id="product">
+  <div class="section-header">
+    <div><p class="section-eyebrow">Öne Çıkan Parça</p><h2 class="section-title">Algiz <em>Elbise</em></h2></div>
+    <a href="#" class="section-link">Tüm Koleksiyon</a>
+  </div>
+  <div class="product-hero-card">
+    <div class="phc-image">
+      <img class="phc-img" src="WhatsApp_Image_2026-05-03_at_14_09_56.jpeg" alt="Algiz Elbise">
+      <div class="phc-img-overlay"></div>
+      <span class="phc-badge">YENİ SEZON</span>
+      <div class="phc-tag"><span>Sonbahar 2025</span><span>Limited</span></div>
+      <div class="phc-colors">
+        <div class="color-dot active" style="background:#1a1008;" title="Obsidyen"></div>
+        <div class="color-dot" style="background:#3d2a1a;" title="Amber"></div>
+        <div class="color-dot" style="background:#2c1f30;" title="Gece"></div>
+        <div class="color-dot" style="background:#1e2a20;" title="Orman"></div>
+      </div>
+    </div>
+    <div class="phc-info">
+      <p class="phc-collection">ALGIZ GİYİM · Koruma Koleksiyonu</p>
+      <h2 class="phc-name">Algiz <em>Maxi Elbise</em></h2>
+      <p class="phc-tagline">Güç ve zarafetin birleştiği nokta</p>
+      <div class="phc-divider"></div>
+      <p class="phc-desc">El işçiliğiyle üretilen Algiz Maxi Elbise; %100 doğal dokuma kumaşı, özgün rün desenli işlemesi ve akış veren A-line kesimiyle modern kadının hem gündüz hem gece şıklığını tamamlıyor.</p>
+      <div class="phc-features">
+        <span class="phc-feature">%100 Doğal Kumaş</span><span class="phc-feature">El İşi İşleme</span>
+        <span class="phc-feature">A-Line Kesim</span><span class="phc-feature">Rün Detay</span>
+        <span class="phc-feature">Maxi Boy</span><span class="phc-feature">4 Renk Seçenek</span>
+      </div>
+      <div class="phc-price-row">
+        <span class="phc-price">₺2.490</span><span class="phc-price-old">₺3.200</span>
+        <span class="phc-price-badge">%22 İNDİRİM</span>
+      </div>
+      <p class="size-label">Beden Seçin</p>
+      <div class="size-row">
+        <button class="size-btn" onclick="selectSize(this)">XS</button>
+        <button class="size-btn active" onclick="selectSize(this)">S</button>
+        <button class="size-btn" onclick="selectSize(this)">M</button>
+        <button class="size-btn" onclick="selectSize(this)">L</button>
+        <button class="size-btn" onclick="selectSize(this)">XL</button>
+      </div>
+      <button class="add-cart-btn" onclick="addToCart()"><span>Sepete Ekle</span></button>
+      <button class="wishlist-btn">♡ &nbsp; İstek Listesine Ekle</button>
+    </div>
+  </div>
+</section>
+
+<div class="tabs-section">
+  <div class="tabs-nav">
+    <button class="tab-btn active" onclick="switchTab(0)">Ürün Detayı</button>
+    <button class="tab-btn" onclick="switchTab(1)">Bakım Talimatları</button>
+    <button class="tab-btn" onclick="switchTab(2)">Beden Kılavuzu</button>
+  </div>
+  <div class="tab-pane active" id="tab0">
+    <p class="tab-text">Algiz Maxi Elbise, Türk dokumacılık geleneğinin modern yorumudur. El seçimi %100 doğal dokuma kumaştan üretilen bu elbise, Kuzey mitolojisinin güç ve koruma sembolü Algiz rününü nakış detaylarına taşır.<br><br>Akışkan A-line silüeti, her beden için uyum sağlarken uzun kesimi zarif bir görünüm sunar.</p>
+    <ul class="tab-list">
+      <li>%100 doğal dokuma kumaş, OEKO-TEX sertifikalı</li><li>El nakışı Algiz rün detayı</li>
+      <li>Maxi boy, zemine 5–8 cm mesafe</li><li>Gizli metal fermuar, arka orta</li>
+      <li>Astarlı iç yapısı ile tam konfor</li><li>Kapaklı yan cep</li><li>Made in Turkey · İzmir atölyesi</li>
+    </ul>
+  </div>
+  <div class="tab-pane" id="tab1">
+    <ul class="tab-list">
+      <li>30°C hassas yıkama programı önerilir</li><li>Çamaşır makinesinde yıkarken ters çevirin</li>
+      <li>Kurutma makinesi kullanmayın</li><li>Islak iken sıkmayın</li>
+      <li>Orta ısı (150°C) ile ütü yapın</li><li>Kuru temizleme mümkündür</li>
+    </ul>
+    <p class="tab-text">Nakış bölgesine doğrudan ütü uygulamayın; üzerine ince bir bez koyarak ütüleyin.</p>
+  </div>
+  <div class="tab-pane" id="tab2">
+    <table class="size-table"><thead><tr><th>Beden</th><th>Göğüs (cm)</th><th>Bel (cm)</th><th>Kalça (cm)</th><th>Boy Önerisi</th></tr></thead><tbody>
+      <tr><td>XS</td><td>80–84</td><td>62–66</td><td>88–92</td><td>155–162 cm</td></tr>
+      <tr><td>S</td><td>84–88</td><td>66–70</td><td>92–96</td><td>158–165 cm</td></tr>
+      <tr><td>M</td><td>88–92</td><td>70–74</td><td>96–100</td><td>162–168 cm</td></tr>
+      <tr><td>L</td><td>92–96</td><td>74–78</td><td>100–104</td><td>165–172 cm</td></tr>
+      <tr><td>XL</td><td>96–102</td><td>78–84</td><td>104–110</td><td>168–175 cm</td></tr>
+    </tbody></table>
+    <p class="tab-text" style="margin-top:24px;">Beden konusunda emin olamadıysanız WhatsApp hattımızdan danışabilirsiniz.</p>
+  </div>
+</div>
+
+<!-- FEATURES STRIP KALDIRILDI (kullanıcı isteği) -->
+
+<section class="lookbook" id="lookbook">
+  <div class="section-header">
+    <div><p class="section-eyebrow">Stil Dünyası</p><h2 class="section-title">Algiz <em>Lookbook</em></h2></div>
+    <a href="#" class="section-link">Tüm Galeri</a>
+  </div>
+  <div class="lookbook-grid">
+    <div class="lb-item"><img class="lb-img" src="WhatsApp_Image_2026-05-03_at_14_09_56.jpeg" alt="Lookbook 1"><div class="lb-overlay"><span class="lb-label">Koruma Koleksiyonu</span></div></div>
+    <div class="lb-item"><img class="lb-img" src="WhatsApp_Image_2026-05-03_at_14_09_56.jpeg" style="filter:sepia(.3) contrast(1.1) brightness(.65) hue-rotate(15deg);" alt="Lookbook 2"><div class="lb-overlay"><span class="lb-label">Gece Ruhu</span></div></div>
+    <div class="lb-item"><img class="lb-img" src="WhatsApp_Image_2026-05-03_at_14_09_56.jpeg" style="filter:sepia(.4) contrast(1.15) brightness(.6) hue-rotate(-10deg);" alt="Lookbook 3"><div class="lb-overlay"><span class="lb-label">Doğa Çağrısı</span></div></div>
+    <div class="lb-item"><img class="lb-img" src="WhatsApp_Image_2026-05-03_at_14_09_56.jpeg" style="filter:sepia(.2) contrast(1.2) brightness(.7) saturate(1.4);" alt="Lookbook 4"><div class="lb-overlay"><span class="lb-label">Amber Işık</span></div></div>
+  </div>
+</section>
+
+<div class="newsletter">
+  <div><h2 class="nl-title">Koleksiyondan<br><em>Haberdar Ol</em></h2><p class="nl-desc">Yeni parçalar, özel indirimler ve lookbook güncellemelerini ilk siz öğrenin.</p></div>
+  <div class="nl-form">
+    <input class="nl-input" type="text" placeholder="Adınız">
+    <input class="nl-input" type="email" placeholder="E-posta adresiniz">
+    <button class="nl-submit"><span>Abone Ol — Ücretsiz</span></button>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo"><svg width="26" height="36" viewBox="0 0 60 84" fill="none"><line x1="30" y1="4" x2="30" y2="80" stroke="#c8923a" stroke-width="5" stroke-linecap="round"/><line x1="30" y1="28" x2="8" y2="52" stroke="#c8923a" stroke-width="5" stroke-linecap="round"/><line x1="30" y1="28" x2="52" y2="52" stroke="#c8923a" stroke-width="5" stroke-linecap="round"/></svg>ALGIZ GİYİM</div>
+      <p class="footer-brand-desc">Kadim sembollerin ilhamıyla doğan, modern kadına güç ve zarafet sunan Türk moda markası.</p>
+    </div>
+    <div><p class="footer-col-title">Alışveriş</p><ul class="footer-links"><li><a href="#">Yeni Gelenler</a></li><li><a href="#">Elbiseler</a></li><li><a href="#">Koleksiyonlar</a></li><li><a href="#">İndirimler</a></li></ul></div>
+    <div><p class="footer-col-title">Müşteri Hizmetleri</p><ul class="footer-links"><li><a href="#">Kargo & Teslimat</a></li><li><a href="#">Beden Kılavuzu</a></li><li><a href="#">Sıkça Sorulanlar</a></li><li><a href="#">Bize Ulaşın</a></li></ul></div>
+    <div><p class="footer-col-title">Markamız</p><ul class="footer-links"><li><a href="#">Hakkımızda</a></li><li><a href="#">Atölyemiz</a></li><li><a href="#">Sürdürülebilirlik</a></li><li><a href="#">Gizlilik Politikası</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 Algiz Giyim · Tüm Hakları Saklıdır</p>
+    <span class="footer-rune">ᚨ</span>
+    <p class="footer-copy">İzmir, Türkiye · info@algizgiyim.com</p>
+  </div>
+</footer>
+
+<script type="module" src="src/app.js"></script>
+</body>
+</html>
