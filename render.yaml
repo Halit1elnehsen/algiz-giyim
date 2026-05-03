@@ -1,10 +1,8 @@
 services:
   - type: web
     name: algiz-backend
-    env: java
+    env: docker
     rootDir: Backend
-    buildCommand: "./mvnw clean package -DskipTests"
-    startCommand: "java -jar target/single-product-backend-1.0.0.jar"
     envVars:
       - key: PORT
         value: 8080
